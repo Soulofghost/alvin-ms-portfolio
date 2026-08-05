@@ -54,6 +54,7 @@ function ContactSection() {
   return (
     <section id="contact" className="py-24 relative z-10 bg-slate-950/60">
       <div className="container mx-auto px-6 lg:px-16 max-w-7xl">
+        {/* Section Heading */}
         <motion.div
           variants={fadeIn('up', 0.2)}
           initial="hidden"
@@ -71,6 +72,7 @@ function ContactSection() {
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          {/* Contact Info & Social Media Grid */}
           <motion.div
             variants={fadeIn('right', 0.3)}
             initial="hidden"
@@ -90,6 +92,7 @@ function ContactSection() {
               </div>
             </div>
 
+            {/* Social Media Cards */}
             <div className="glass-card rounded-2xl p-6 border border-slate-800">
               <h4 className="text-xs font-mono uppercase tracking-widest text-slate-400 mb-4">Social Ecosystem</h4>
               <div className="grid grid-cols-3 gap-3">
@@ -112,6 +115,7 @@ function ContactSection() {
             </div>
           </motion.div>
 
+          {/* Contact Form */}
           <motion.div
             variants={fadeIn('left', 0.4)}
             initial="hidden"
