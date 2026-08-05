@@ -38,6 +38,7 @@ export default function AIChatbot() {
 
   return (
     <>
+      {/* Floating Trigger Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="fixed bottom-24 right-6 z-40 p-4 rounded-full bg-gradient-to-r from-purple-600 to-cyan-500 text-white shadow-2xl shadow-purple-600/50 hover:scale-110 transition-transform duration-300 flex items-center justify-center group border border-white/20"
@@ -50,6 +51,7 @@ export default function AIChatbot() {
         </span>
       </button>
 
+      {/* Chat Window Modal */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -58,6 +60,7 @@ export default function AIChatbot() {
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             className="fixed bottom-28 right-6 z-50 w-[90vw] sm:w-[380px] h-[480px] bg-slate-900/95 backdrop-blur-xl border border-purple-500/40 rounded-2xl shadow-2xl shadow-purple-950/60 flex flex-col overflow-hidden"
           >
+            {/* Header */}
             <div className="px-4 py-3 bg-slate-950 border-b border-purple-500/30 flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-purple-600 to-cyan-500 flex items-center justify-center text-white text-sm">
@@ -76,6 +79,7 @@ export default function AIChatbot() {
               </button>
             </div>
 
+            {/* Messages Area */}
             <div className="flex-1 p-4 overflow-y-auto space-y-3 font-sans text-xs">
               {messages.map((msg, index) => (
                 <div
@@ -96,6 +100,7 @@ export default function AIChatbot() {
               <div ref={messagesEndRef} />
             </div>
 
+            {/* Input Form */}
             <form onSubmit={handleSend} className="p-3 bg-slate-950 border-t border-slate-800 flex gap-2">
               <input
                 type="text"
