@@ -16,6 +16,7 @@ function ParticlesContainer() {
     let width = (canvas.width = window.innerWidth);
     let height = (canvas.height = window.innerHeight);
 
+    // Auto-pause particle animation loop when canvas is scrolled out of viewport
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -77,6 +78,7 @@ function ParticlesContainer() {
     window.addEventListener('resize', handleResize, { passive: true });
 
     const render = () => {
+      // Auto-pause particle animation loop when scrolled out or tab is hidden
       if (document.hidden || !isVisible) {
         animationFrameId = requestAnimationFrame(render);
         return;
@@ -84,6 +86,7 @@ function ParticlesContainer() {
 
       ctx.clearRect(0, 0, width, height);
 
+      // Draw particle connections with squared-distance pre-check avoiding O(N^2) Math.sqrt
       for (let i = 0; i < particles.length; i++) {
         const p1 = particles[i];
         p1.x += p1.vx;
@@ -98,6 +101,7 @@ function ParticlesContainer() {
         ctx.globalAlpha = p1.alpha;
         ctx.fill();
 
+        // Connect nearby particles
         for (let j = i + 1; j < particles.length; j++) {
           const p2 = particles[j];
           const dx = p1.x - p2.x;
@@ -116,6 +120,7 @@ function ParticlesContainer() {
           }
         }
 
+        // Mouse attraction
         const mdx = p1.x - mouseX;
         const mdy = p1.y - mouseY;
         const mdistSq = mdx * mdx + mdy * mdy;

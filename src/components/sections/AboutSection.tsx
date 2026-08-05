@@ -10,6 +10,7 @@ export default function AboutSection() {
   return (
     <section id="about" className="py-24 relative z-10">
       <div className="container mx-auto px-6 lg:px-16 max-w-7xl">
+        {/* Section Heading */}
         <motion.div
           variants={fadeIn('up', 0.2)}
           initial="hidden"
@@ -26,7 +27,9 @@ export default function AboutSection() {
           <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-cyan-500 mx-auto mt-4 rounded-full" />
         </motion.div>
 
+        {/* Bio & Avatar Row */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16">
+          {/* Avatar Image Card */}
           <motion.div
             variants={fadeIn('right', 0.3)}
             initial="hidden"
@@ -55,6 +58,7 @@ export default function AboutSection() {
             </div>
           </motion.div>
 
+          {/* Bio Text */}
           <motion.div
             variants={fadeIn('left', 0.4)}
             initial="hidden"
@@ -72,6 +76,7 @@ export default function AboutSection() {
               With hands-on experience in Java Spring Boot backend engineering, full-stack React/Next.js platforms, and machine learning models, I bridge the gap between complex software architecture and delightful user interfaces.
             </p>
 
+            {/* Quick Highlights */}
             <div className="grid grid-cols-2 gap-4 mt-2">
               <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800 flex items-center gap-3">
                 <HiCode className="text-2xl text-purple-400" />
@@ -91,6 +96,7 @@ export default function AboutSection() {
           </motion.div>
         </div>
 
+        {/* Animated Stat Counters */}
         <motion.div
           variants={fadeIn('up', 0.4)}
           initial="hidden"
