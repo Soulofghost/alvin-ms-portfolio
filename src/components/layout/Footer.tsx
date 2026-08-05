@@ -3,8 +3,8 @@
 import { PERSONAL_INFO } from '@/data/portfolioData';
 import { FaGithub, FaLinkedin, FaInstagram, FaDiscord, FaEnvelope } from 'react-icons/fa';
 import { HiArrowUp } from 'react-icons/hi';
-import WeatherWidget from '../interactive/WeatherWidget';
-import SpotifyWidget from '../interactive/SpotifyWidget';
+import WeatherWidget from '@/components/interactive/WeatherWidget';
+import SpotifyWidget from '@/components/interactive/SpotifyWidget';
 
 export default function Footer() {
   const scrollToTop = () => {
