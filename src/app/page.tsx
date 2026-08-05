@@ -10,6 +10,7 @@ import Header from '@/components/layout/Header';
 import Nav from '@/components/layout/Nav';
 import HeroSection from '@/components/hero/HeroSection';
 import AboutSection from '@/components/sections/AboutSection';
+import VenturesSection from '@/components/sections/VenturesSection';
 import SkillsSection from '@/components/sections/SkillsSection';
 import ProjectsSection from '@/components/sections/ProjectsSection';
 import ServicesSection from '@/components/sections/ServicesSection';
@@ -67,6 +68,7 @@ function Home() {
       {/* Main Sections */}
       <HeroSection onOpenResumeModal={handleOpenResume} />
       <AboutSection />
+      <VenturesSection />
       <SkillsSection />
       <ProjectsSection />
       <ServicesSection />

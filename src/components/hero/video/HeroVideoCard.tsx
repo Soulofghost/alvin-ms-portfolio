@@ -2,23 +2,24 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 export default function HeroVideoCard() {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [isPlaying, setIsPlaying] = useState(true);
+  const [hasVideoError, setHasVideoError] = useState(false);
 
   useEffect(() => {
     const video = videoRef.current;
     const container = containerRef.current;
     if (!video || !container) return;
 
-    // Use IntersectionObserver to pause video when scrooled out of viewport for max performance
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            video.play().catch(() => {});
+            video.play().catch(() => setHasVideoError(true));
             setIsPlaying(true);
           } else {
             video.pause();
@@ -50,17 +51,27 @@ export default function HeroVideoCard() {
         className="relative w-full h-[350px] sm:h-[480px] lg:h-[540px] rounded-[18px] sm:rounded-[24px] overflow-hidden bg-slate-900/40 backdrop-blur-xl border border-white/20 shadow-[0_20px_60px_rgba(0,0,0,0.6)] shadow-purple-950/40 group cursor-pointer"
         style={{ willChange: 'transform' }}
       >
-        {/* HTML5 Video Player */}
-        <video
-          ref={videoRef}
-          src="/hero-video.mp4"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          className="w-full h-full object-cover rounded-[18px] sm:rounded-[24px] pointer-events-none transition-transform duration-700 group-hover:scale-105"
-        />
+        {!hasVideoError ? (
+          <video
+            ref={videoRef}
+            src="/hero-video.mp4"
+            poster="/hero-poster.jpg"
+            autoPlay
+            muted
+            loop
+            playsInline
+            onError={() => setHasVideoError(true)}
+            className="w-full h-full object-cover rounded-[18px] sm:rounded-[24px] pointer-events-none transition-transform duration-700 group-hover:scale-105"
+          />
+        ) : (
+          <Image
+            src="/hero-poster.jpg"
+            alt="Solo Leveling Cinematic Wallpaper"
+            fill
+            className="object-cover rounded-[18px] sm:rounded-[24px] transition-transform duration-700 group-hover:scale-105"
+            sizes="(max-width: 768px) 100vw, 55vw"
+          />
+        )}
 
         {/* Ambient Glass Overlay Gradient */}
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
