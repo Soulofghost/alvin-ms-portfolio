@@ -24,6 +24,7 @@ function ProjectsSection() {
   return (
     <section id="projects" className="py-24 relative z-10">
       <div className="container mx-auto px-6 lg:px-16 max-w-7xl">
+        {/* Section Heading */}
         <motion.div
           variants={fadeIn('up', 0.2)}
           initial="hidden"
@@ -40,6 +41,7 @@ function ProjectsSection() {
           <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-cyan-500 mx-auto mt-4 rounded-full" />
         </motion.div>
 
+        {/* Category Filters */}
         <div className="flex flex-wrap justify-center gap-3 mb-12">
           {CATEGORIES.map((cat) => (
             <button
@@ -56,6 +58,7 @@ function ProjectsSection() {
           ))}
         </div>
 
+        {/* Project Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project, index) => (
             <motion.div
@@ -66,6 +69,7 @@ function ProjectsSection() {
               viewport={{ once: true }}
               className="group glass-card glass-card-hover rounded-2xl border border-slate-800 hover:border-purple-500/50 overflow-hidden flex flex-col justify-between"
             >
+              {/* Card Image Banner */}
               <div className="relative h-52 w-full overflow-hidden bg-slate-950">
                 <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-purple-950/40 to-cyan-950/40 flex items-center justify-center p-6 text-center">
                   <div className="flex flex-col items-center gap-2">
@@ -82,6 +86,7 @@ function ProjectsSection() {
                 </div>
               </div>
 
+              {/* Card Content */}
               <div className="p-6 flex flex-col flex-1 justify-between">
                 <div>
                   <h3 className="text-xl font-bold text-slate-100 group-hover:text-cyan-300 transition-colors mb-2">
@@ -91,6 +96,7 @@ function ProjectsSection() {
                     {project.description}
                   </p>
 
+                  {/* Tech Badges */}
                   <div className="flex flex-wrap gap-1.5 mb-6">
                     {project.techStack.map((tech) => (
                       <span
@@ -103,6 +109,7 @@ function ProjectsSection() {
                   </div>
                 </div>
 
+                {/* Actions Row */}
                 <div className="flex items-center justify-between pt-4 border-t border-slate-800/80">
                   <button
                     onClick={() => setActiveModalProject(project)}
@@ -137,6 +144,7 @@ function ProjectsSection() {
           ))}
         </div>
 
+        {/* Detail Modal */}
         <AnimatePresence>
           {activeModalProject && (
             <motion.div

@@ -63,6 +63,7 @@ function SkillsSection() {
   return (
     <section id="skills" className="py-24 relative z-10 bg-slate-950/40">
       <div className="container mx-auto px-6 lg:px-16 max-w-7xl">
+        {/* Section Heading */}
         <motion.div
           variants={fadeIn('up', 0.2)}
           initial="hidden"
@@ -79,7 +80,9 @@ function SkillsSection() {
           <div className="w-24 h-1 bg-gradient-to-r from-cyan-500 to-purple-500 mx-auto mt-4 rounded-full" />
         </motion.div>
 
+        {/* Category Tabs & Search Bar */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-12">
+          {/* Category Tabs */}
           <div className="flex flex-wrap justify-center gap-2 bg-slate-900/80 p-1.5 rounded-2xl border border-slate-800">
             {SKILL_CATEGORIES.map((category) => {
               const isActive = activeTab === category.name;
@@ -99,6 +102,7 @@ function SkillsSection() {
             })}
           </div>
 
+          {/* Search Bar */}
           <div className="relative w-full md:w-64">
             <HiSearch className="absolute left-3.5 top-1/2 transform -translate-y-1/2 text-slate-400 text-base" />
             <input
@@ -111,6 +115,7 @@ function SkillsSection() {
           </div>
         </div>
 
+        {/* Skill Cards Grid */}
         <motion.div
           key={activeTab}
           variants={fadeIn('up', 0.2)}
@@ -129,6 +134,7 @@ function SkillsSection() {
                     : 'border-slate-800 hover:border-purple-500/40'
                 }`}
               >
+                {/* Glow dot if highlighted */}
                 {skill.highlight && (
                   <span className="absolute top-3 right-3 text-[10px] font-mono px-2 py-0.5 rounded-full bg-purple-900/60 border border-purple-500/40 text-purple-300">
                     Core
@@ -145,6 +151,7 @@ function SkillsSection() {
                   </div>
                 </div>
 
+                {/* Animated Percentage Bar */}
                 <div className="w-full h-2 rounded-full bg-slate-900 overflow-hidden p-0.5 border border-slate-800">
                   <motion.div
                     initial={{ width: 0 }}

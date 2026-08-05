@@ -18,6 +18,7 @@ export default function ServicesSection() {
   return (
     <section id="services" className="py-24 relative z-10 bg-slate-950/60">
       <div className="container mx-auto px-6 lg:px-16 max-w-7xl">
+        {/* Section Heading */}
         <motion.div
           variants={fadeIn('up', 0.2)}
           initial="hidden"
@@ -34,6 +35,7 @@ export default function ServicesSection() {
           <div className="w-24 h-1 bg-gradient-to-r from-cyan-500 to-purple-500 mx-auto mt-4 rounded-full" />
         </motion.div>
 
+        {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {SERVICES.map((service, index) => {
             const IconComp = ICON_COMPONENTS[service.icon] || HiCode;
